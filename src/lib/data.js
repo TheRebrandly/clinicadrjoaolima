@@ -1,7 +1,7 @@
 export const clinic = {
-  name: "Atelier CRM",
-  subtitle: "Dr. Joao Lima",
-  descriptor: "Cirurgia Plastica e Medicina Estetica"
+  name: "Dr. Joao Lima",
+  subtitle: "Clinica Cirurgia Plastica",
+  descriptor: "Clinica Cirurgia Plastica"
 };
 
 export const modules = [
