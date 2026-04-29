@@ -1,7 +1,8 @@
 import "./globals.css";
+import "./logo.css";
 
 export const metadata = {
-  title: "Atelier CRM",
+  title: "Dr. Joao Lima CRM",
   description: "Premium clinic CRM for aesthetic medicine operations"
 };
 
