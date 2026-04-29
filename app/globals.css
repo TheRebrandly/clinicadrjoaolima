@@ -1,16 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap");
+
 :root {
-  --ivory: #f8f4ee;
-  --surface: #fffdf9;
-  --porcelain: #f2ece3;
-  --champagne: #d9bb74;
-  --sand: #d2b08a;
-  --stone: #cbb7a0;
-  --ink: #2e231d;
-  --muted: #6a5749;
-  --sage: #8aa596;
-  --clinical-blue: #7f9eb7;
-  --line: rgba(46, 35, 29, 0.13);
-  --shadow: 0 10px 28px rgba(46, 35, 29, 0.06);
+  --ivory: #fbf8f3;
+  --surface: #fffefb;
+  --porcelain: #f4eee6;
+  --champagne: #c9a95c;
+  --sand: #d7c1a6;
+  --stone: #d8cabb;
+  --ink: #2b2520;
+  --muted: #7a6b5f;
+  --sage: #7f9b89;
+  --clinical-blue: #829aad;
+  --line: rgba(43, 37, 32, 0.1);
+  --shadow: 0 8px 22px rgba(43, 37, 32, 0.045);
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Manrope", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
 }
@@ -24,8 +26,12 @@ body {
   margin: 0;
   min-height: 100%;
   color: var(--ink);
-  background: var(--ivory);
+  background:
+    linear-gradient(180deg, #fffdf9 0%, var(--ivory) 45%, #f7f1e9 100%);
   font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  text-rendering: geometricPrecision;
 }
 
 button,
@@ -49,7 +55,7 @@ button {
   height: 100vh;
   padding: 16px;
   border-right: 1px solid var(--line);
-  background: rgba(255, 253, 249, 0.86);
+  background: rgba(255, 254, 251, 0.92);
   backdrop-filter: blur(16px);
 }
 
@@ -66,7 +72,7 @@ button {
 .brand-row strong {
   display: block;
   font-family: var(--font-display);
-  font-size: 23px;
+  font-size: 25px;
   font-weight: 500;
 }
 
@@ -84,7 +90,8 @@ button {
   display: grid;
   place-items: center;
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--champagne), #e8d6cc);
+  border: 1px solid rgba(201, 169, 92, 0.55);
+  background: #fffaf2;
   color: var(--ink);
   font-weight: 700;
 }
@@ -93,15 +100,16 @@ button {
   width: 44px;
   height: 44px;
   font-family: var(--font-display);
-  font-size: 21px;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .eyebrow {
   margin: 0 0 4px;
   color: var(--muted);
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -124,9 +132,11 @@ button {
   align-items: center;
   gap: 10px;
   height: 42px;
-  padding: 0 10px;
+  padding: 0 12px;
   border-radius: 8px;
   color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
   text-align: left;
 }
 
@@ -134,6 +144,7 @@ button {
 .nav-button.is-active {
   background: var(--porcelain);
   color: var(--ink);
+  box-shadow: inset 2px 0 0 var(--champagne);
 }
 
 .integration-box {
@@ -141,7 +152,7 @@ button {
   padding: 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--surface);
+  background: rgba(255, 254, 251, 0.72);
 }
 
 .integration-box ul,
@@ -175,7 +186,8 @@ button {
 }
 
 .topbar h1 {
-  font-size: 34px;
+  font-size: 38px;
+  line-height: 1;
 }
 
 .topbar__left,
@@ -205,7 +217,7 @@ button {
   padding: 0 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--surface);
+  background: rgba(255, 254, 251, 0.86);
 }
 
 .search input {
@@ -226,14 +238,16 @@ button {
 .button {
   gap: 8px;
   padding: 0 14px;
-  background: var(--champagne);
+  border-color: rgba(201, 169, 92, 0.7);
+  background: #f3e4c1;
   color: var(--ink);
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .button--secondary {
-  background: var(--surface);
+  border-color: rgba(43, 37, 32, 0.18);
+  background: rgba(255, 254, 251, 0.78);
 }
 
 .icon-button {
@@ -276,7 +290,7 @@ button {
   padding: 16px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--surface);
+  background: rgba(255, 254, 251, 0.88);
   box-shadow: var(--shadow);
 }
 
@@ -288,21 +302,24 @@ button {
 
 .section-title h2,
 .panel h2 {
-  font-size: 24px;
+  font-size: 27px;
+  line-height: 1.05;
 }
 
 .metric-card span {
   display: block;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .metric-card strong {
   display: block;
   margin: 8px 0 6px;
   font-family: var(--font-display);
-  font-size: 31px;
+  font-size: 36px;
   font-weight: 500;
+  line-height: 1;
 }
 
 .metric-card small {
@@ -317,10 +334,10 @@ button {
   padding: 0 10px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: var(--porcelain);
+  background: rgba(244, 238, 230, 0.72);
   color: var(--ink);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .bar-chart {
@@ -342,7 +359,7 @@ button {
 .bar span {
   min-height: 18px;
   border-radius: 6px 6px 2px 2px;
-  background: linear-gradient(180deg, var(--champagne), var(--sage));
+  background: linear-gradient(180deg, #c9a95c, #9cad9f);
 }
 
 .rows {
@@ -373,7 +390,7 @@ button {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: var(--champagne);
+  background: #c9a95c;
 }
 
 .progress__bar--green {
@@ -385,7 +402,7 @@ button {
 }
 
 .highlight-panel {
-  background: linear-gradient(135deg, #fffdf9, #eef4f0);
+  background: linear-gradient(135deg, #fffefb, #eef4f0);
 }
 
 .highlight-panel p {
@@ -403,6 +420,7 @@ button {
   padding: 10px;
   border: 1px solid var(--line);
   border-radius: 8px;
+  background: rgba(255, 254, 251, 0.5);
   text-align: left;
 }
 
@@ -438,7 +456,7 @@ button {
   padding: 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--ivory);
+  background: rgba(251, 248, 243, 0.74);
 }
 
 .detail-grid span {
@@ -468,6 +486,7 @@ button {
   padding: 10px;
   border: 1px solid var(--line);
   border-radius: 8px;
+  background: rgba(255, 254, 251, 0.48);
 }
 
 .table-row--simple {
