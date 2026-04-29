@@ -1,10 +1,12 @@
 "use client";
 
 import {
+  Activity,
   BarChart3,
   Bot,
   CalendarDays,
   ChevronRight,
+  ClipboardCheck,
   DollarSign,
   Download,
   FileText,
@@ -20,7 +22,7 @@ import {
   Users,
   X
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   analytics,
   appointments,
@@ -76,11 +78,8 @@ function Sidebar({ activeView, onChangeView, isOpen, onClose }) {
   return (
     <aside className={`sidebar ${isOpen ? "is-open" : ""}`}>
       <div className="brand-row">
-        <div className="brand-mark">JL</div>
-        <div>
-          <p className="eyebrow">Clinic operations</p>
-          <strong>{clinic.name}</strong>
-          <span>{clinic.subtitle}</span>
+        <div className="brand-logo">
+          <img src="/brand/dr-joao-lima-logo.svg" alt="Dr. Joao Lima Clinica Cirurgia Plastica" />
         </div>
         <button className="icon-button mobile-only" onClick={onClose} aria-label="Fechar menu">
           <X size={18} />
@@ -249,7 +248,7 @@ function PatientsView() {
               <span className="avatar">{patient.name.split(" ").map((part) => part[0]).slice(0, 2).join("")}</span>
               <span>
                 <strong>{patient.name}</strong>
-                <small>{patient.segment} - {patient.treatment}</small>
+                <small>{patient.segment} · {patient.treatment}</small>
               </span>
               <em>{patient.score}</em>
             </button>
@@ -259,7 +258,7 @@ function PatientsView() {
 
       <Panel>
         <SectionTitle
-          label={`${selected.id} - ${selected.segment}`}
+          label={`${selected.id} · ${selected.segment}`}
           title={selected.name}
           action={<span className="badge">{selected.consent}</span>}
         />
@@ -291,11 +290,41 @@ function PatientsView() {
 }
 
 function ScheduleView() {
+  const [calendarEvents, setCalendarEvents] = useState([]);
+  const visibleAppointments = calendarEvents.length ? calendarEvents : appointments;
+
+  useEffect(() => {
+    let ignore = false;
+
+    async function loadCalendar() {
+      try {
+        const response = await fetch("/api/calendar");
+        const data = await response.json();
+
+        if (!ignore && Array.isArray(data.events)) {
+          setCalendarEvents(data.events);
+        }
+      } catch {
+        if (!ignore) setCalendarEvents([]);
+      }
+    }
+
+    loadCalendar();
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
+
   return (
     <Panel>
-      <SectionTitle label="Agenda multi-provedor" title="Hoje, 29 de abril" action={<span className="badge">Google Calendar</span>} />
+      <SectionTitle
+        label="Agenda multi-provedor"
+        title="Hoje, 29 de abril"
+        action={<span className="badge">{calendarEvents.length ? "Google conectado" : "Google Calendar"}</span>}
+      />
       <div className="table">
-        {appointments.map((item) => (
+        {visibleAppointments.map((item) => (
           <div className="table-row" key={`${item.time}-${item.patient}`}>
             <strong>{item.time}</strong>
             <span>{item.patient}</span>
@@ -326,7 +355,7 @@ function InboxView() {
             >
               <span>
                 <strong>{conversation.name}</strong>
-                <small>{conversation.channel} - {conversation.owner}</small>
+                <small>{conversation.channel} · {conversation.owner}</small>
               </span>
               <em>{conversation.tag}</em>
             </button>
@@ -416,7 +445,7 @@ function FinanceView() {
             <div className="data-row" key={service.name}>
               <div>
                 <strong>{service.name}</strong>
-                <span>R$ {service.revenue} mil - margem {service.margin}%</span>
+                <span>R$ {service.revenue} mil · margem {service.margin}%</span>
               </div>
               <Progress value={service.margin} tone="blue" />
             </div>
