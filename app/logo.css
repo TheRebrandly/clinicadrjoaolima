@@ -1,6 +1,7 @@
 .brand-row {
-  grid-template-columns: 58px 1fr auto;
-  gap: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .brand-mark,
