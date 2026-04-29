@@ -1,0 +1,20 @@
+<svg width="620" height="170" viewBox="0 0 620 170" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Dr. Joao Lima Clinica Cirurgia Plastica</title>
+  <desc id="desc">Wordmark for Dr. Joao Lima plastic surgery clinic.</desc>
+  <rect width="620" height="170" fill="#FFFEFB"/>
+  <g fill="#C9A95C">
+    <rect x="18" y="68" width="7" height="7"/>
+    <rect x="34" y="68" width="7" height="7"/>
+    <rect x="50" y="68" width="7" height="7"/>
+    <rect x="299" y="46" width="8" height="8"/>
+    <rect x="286" y="68" width="7" height="7"/>
+    <rect x="301" y="68" width="7" height="7"/>
+    <rect x="316" y="68" width="7" height="7"/>
+    <rect x="544" y="68" width="7" height="7"/>
+    <rect x="560" y="68" width="7" height="7"/>
+    <rect x="576" y="68" width="7" height="7"/>
+  </g>
+  <text x="68" y="82" fill="#1F1F1F" font-family="Arial Black, Arial, sans-serif" font-size="48" font-weight="900" letter-spacing="6">DR. JOAO LIMA</text>
+  <text x="44" y="128" fill="#C9A95C" font-family="Manrope, Avenir Next, Arial, sans-serif" font-size="24" font-weight="500" letter-spacing="10">CLINICA</text>
+  <text x="238" y="128" fill="#1F1F1F" font-family="Manrope, Avenir Next, Arial, sans-serif" font-size="24" font-weight="500" letter-spacing="8">CIRURGIA PLASTICA</text>
+</svg>
