@@ -1,0 +1,13 @@
+.brand-row {
+  grid-template-columns: 92px 1fr auto;
+  gap: 14px;
+}
+
+.brand-mark {
+  width: 92px;
+  height: 46px;
+  padding: 5px;
+  overflow: hidden;
+  color: transparent;
+  background: #fffefb url("/brand/dr-joao-lima-logo.svg") center / contain no-repeat;
+}
