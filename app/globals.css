@@ -1,19 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --ivory: #fbf8f3;
-  --surface: #fffefb;
-  --porcelain: #f4eee6;
+  --ivory: #f8faf7;
+  --surface: #ffffff;
+  --porcelain: #eef7ee;
   --champagne: #c9a95c;
   --sand: #d7c1a6;
-  --stone: #d8cabb;
-  --ink: #2b2520;
-  --muted: #7a6b5f;
-  --sage: #7f9b89;
-  --clinical-blue: #829aad;
-  --line: rgba(43, 37, 32, 0.1);
-  --shadow: 0 8px 22px rgba(43, 37, 32, 0.045);
-  --font-display: "Cormorant Garamond", Georgia, serif;
+  --stone: #dfe6df;
+  --ink: #111827;
+  --muted: #667085;
+  --sage: #58c66c;
+  --sage-deep: #327747;
+  --clinical-blue: #75839a;
+  --line: rgba(17, 24, 39, 0.09);
+  --shadow: 0 1px 2px rgba(17, 24, 39, 0.04);
+  --font-display: "Plus Jakarta Sans", "Manrope", sans-serif;
   --font-body: "Manrope", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -26,11 +27,10 @@ body {
   margin: 0;
   min-height: 100%;
   color: var(--ink);
-  background:
-    linear-gradient(180deg, #fffdf9 0%, var(--ivory) 45%, #f7f1e9 100%);
+  background: #f7f8fb;
   font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.55;
+  font-size: 14px;
+  line-height: 1.45;
   text-rendering: geometricPrecision;
 }
 
@@ -45,7 +45,7 @@ button {
 
 .app-shell {
   display: grid;
-  grid-template-columns: 268px minmax(0, 1fr);
+  grid-template-columns: 232px minmax(0, 1fr);
   min-height: 100vh;
 }
 
@@ -53,27 +53,27 @@ button {
   position: sticky;
   top: 0;
   height: 100vh;
-  padding: 16px;
+  padding: 20px 10px;
   border-right: 1px solid var(--line);
-  background: rgba(255, 254, 251, 0.92);
-  backdrop-filter: blur(16px);
+  background: #ffffff;
+  backdrop-filter: none;
 }
 
 .brand-row {
   display: grid;
-  grid-template-columns: 44px 1fr auto;
-  gap: 10px;
+  grid-template-columns: 74px 1fr auto;
+  gap: 12px;
   align-items: center;
-  min-height: 64px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--line);
+  min-height: 60px;
+  padding: 0 14px 18px;
+  border-bottom: 0;
 }
 
 .brand-row strong {
   display: block;
   font-family: var(--font-display);
-  font-size: 25px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 800;
 }
 
 .brand-row span,
@@ -85,7 +85,7 @@ button {
   color: var(--muted);
 }
 
-.brand-mark,
+.brand-logo,
 .avatar {
   display: grid;
   place-items: center;
@@ -96,12 +96,18 @@ button {
   font-weight: 700;
 }
 
-.brand-mark {
-  width: 44px;
+.brand-logo {
+  width: 74px;
   height: 44px;
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 500;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.brand-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .eyebrow {
@@ -116,7 +122,7 @@ button {
 .nav-list {
   display: grid;
   gap: 4px;
-  margin-top: 16px;
+  margin-top: 12px;
 }
 
 .nav-button,
@@ -130,29 +136,34 @@ button {
 .nav-button {
   display: flex;
   align-items: center;
-  gap: 10px;
-  height: 42px;
-  padding: 0 12px;
-  border-radius: 8px;
-  color: var(--muted);
+  gap: 12px;
+  height: 46px;
+  padding: 0 16px;
+  border-radius: 10px;
+  color: #66758c;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 800;
   text-align: left;
 }
 
 .nav-button:hover,
 .nav-button.is-active {
   background: var(--porcelain);
-  color: var(--ink);
-  box-shadow: inset 2px 0 0 var(--champagne);
+  color: var(--sage);
+  box-shadow: inset 4px 0 0 var(--sage);
+}
+
+.nav-button svg {
+  color: currentColor;
+  stroke-width: 2.2;
 }
 
 .integration-box {
   margin-top: 24px;
   padding: 12px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 254, 251, 0.72);
+  border-radius: 12px;
+  background: #fbfcfb;
 }
 
 .integration-box ul,
@@ -165,15 +176,15 @@ button {
 
 .workspace {
   min-width: 0;
-  padding: 18px;
+  padding: 30px 36px;
 }
 
 .topbar {
   display: flex;
   justify-content: space-between;
-  gap: 18px;
+  gap: 20px;
   align-items: center;
-  margin-bottom: 18px;
+  margin-bottom: 26px;
 }
 
 .topbar h1,
@@ -182,12 +193,13 @@ button {
 .panel h2 {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .topbar h1 {
-  font-size: 38px;
-  line-height: 1;
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
 }
 
 .topbar__left,
@@ -212,12 +224,12 @@ button {
 
 .search {
   width: min(34vw, 360px);
-  height: 42px;
+  height: 44px;
   gap: 8px;
   padding: 0 12px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 254, 251, 0.86);
+  border-radius: 10px;
+  background: #ffffff;
 }
 
 .search input {
@@ -231,23 +243,26 @@ button {
 .button,
 .icon-button {
   height: 42px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid var(--line);
 }
 
 .button {
   gap: 8px;
   padding: 0 14px;
-  border-color: rgba(201, 169, 92, 0.7);
-  background: #f3e4c1;
-  color: var(--ink);
+  border-color: transparent;
+  background: var(--sage);
+  color: #ffffff;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(88, 198, 108, 0.2);
 }
 
 .button--secondary {
-  border-color: rgba(43, 37, 32, 0.18);
-  background: rgba(255, 254, 251, 0.78);
+  border-color: var(--line);
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: none;
 }
 
 .icon-button {
@@ -259,12 +274,12 @@ button {
 
 .view-stack {
   display: grid;
-  gap: 14px;
+  gap: 22px;
 }
 
 .grid {
   display: grid;
-  gap: 14px;
+  gap: 18px;
 }
 
 .grid--2 {
@@ -283,48 +298,62 @@ button {
 .metric-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  gap: 18px;
 }
 
 .panel {
-  padding: 16px;
+  padding: 22px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 254, 251, 0.88);
+  border-radius: 14px;
+  background: #ffffff;
   box-shadow: var(--shadow);
 }
 
 .section-title {
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .section-title h2,
 .panel h2 {
-  font-size: 27px;
-  line-height: 1.05;
+  font-size: 19px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.metric-card {
+  display: grid;
+  place-items: center;
+  min-height: 132px;
+  text-align: center;
 }
 
 .metric-card span {
   display: block;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 500;
+  color: #66758c;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .metric-card strong {
   display: block;
-  margin: 8px 0 6px;
+  margin: 6px 0 4px;
   font-family: var(--font-display);
-  font-size: 36px;
-  font-weight: 500;
+  font-size: 34px;
+  font-weight: 800;
   line-height: 1;
+  color: var(--sage);
+  letter-spacing: -0.04em;
 }
 
 .metric-card small {
-  color: #496f58;
-  font-weight: 700;
+  color: #66758c;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 .badge {
@@ -333,18 +362,18 @@ button {
   min-height: 30px;
   padding: 0 10px;
   border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(244, 238, 230, 0.72);
-  color: var(--ink);
+  border-radius: 9px;
+  background: var(--porcelain);
+  color: var(--sage-deep);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .bar-chart {
   display: flex;
   align-items: end;
   gap: 8px;
-  height: 220px;
+  height: 190px;
 }
 
 .bar {
@@ -358,8 +387,8 @@ button {
 
 .bar span {
   min-height: 18px;
-  border-radius: 6px 6px 2px 2px;
-  background: linear-gradient(180deg, #c9a95c, #9cad9f);
+  border-radius: 8px 8px 3px 3px;
+  background: linear-gradient(180deg, var(--sage), #d8c08a);
 }
 
 .rows {
@@ -380,7 +409,7 @@ button {
 }
 
 .progress {
-  height: 10px;
+  height: 8px;
   overflow: hidden;
   border-radius: 999px;
   background: rgba(46, 35, 29, 0.08);
@@ -390,7 +419,7 @@ button {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: #c9a95c;
+  background: var(--champagne);
 }
 
 .progress__bar--green {
@@ -402,7 +431,7 @@ button {
 }
 
 .highlight-panel {
-  background: linear-gradient(135deg, #fffefb, #eef4f0);
+  background: linear-gradient(135deg, #ffffff, #eef9f0);
 }
 
 .highlight-panel p {
@@ -419,15 +448,15 @@ button {
   min-height: 62px;
   padding: 10px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 254, 251, 0.5);
+  border-radius: 12px;
+  background: #ffffff;
   text-align: left;
 }
 
 .patient-row.is-active,
 .conversation-row.is-active {
   background: var(--porcelain);
-  border-color: var(--stone);
+  border-color: rgba(88, 198, 108, 0.34);
 }
 
 .avatar {
@@ -452,11 +481,11 @@ button {
 }
 
 .detail-grid div,
-.note-box {
+note-box {
   padding: 12px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(251, 248, 243, 0.74);
+  border-radius: 12px;
+  background: #fbfcfb;
 }
 
 .detail-grid span {
@@ -485,8 +514,8 @@ button {
   min-height: 46px;
   padding: 10px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 254, 251, 0.48);
+  border-radius: 12px;
+  background: #ffffff;
 }
 
 .table-row--simple {
@@ -510,7 +539,7 @@ button {
   margin: 0;
   padding: 10px 12px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--ivory);
 }
 
