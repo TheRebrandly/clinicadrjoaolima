@@ -6,6 +6,8 @@ import {
   Bot,
   CalendarDays,
   ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
   ClipboardCheck,
   DollarSign,
   Download,
@@ -74,13 +76,17 @@ function Progress({ value, tone = "gold" }) {
   );
 }
 
-function Sidebar({ activeView, onChangeView, isOpen, onClose }) {
+function Sidebar({ activeView, onChangeView, isOpen, isCollapsed, onClose, onToggleCollapse }) {
   return (
-    <aside className={`sidebar ${isOpen ? "is-open" : ""}`}>
+    <aside className={`sidebar ${isOpen ? "is-open" : ""} ${isCollapsed ? "is-collapsed" : ""}`}>
       <div className="brand-row">
         <div className="brand-logo">
           <img src="/brand/dr-joao-lima-logo.svg" alt="Dr. Joao Lima Clinica Cirurgia Plastica" />
         </div>
+        <strong>Dr Joao Lima</strong>
+        <button className="collapse-button desktop-only" onClick={onToggleCollapse} aria-label="Recolher menu">
+          {isCollapsed ? <ChevronsRight size={18} /> : <ChevronsLeft size={18} />}
+        </button>
         <button className="icon-button mobile-only" onClick={onClose} aria-label="Fechar menu">
           <X size={18} />
         </button>
@@ -125,7 +131,7 @@ function Topbar({ activeView, onOpenMenu }) {
           <Menu size={18} />
         </button>
         <div>
-          <p className="eyebrow">CRM omnichannel para clinica estetica</p>
+          <p className="eyebrow">Thursday, 30 April 2026</p>
           <h1>{title}</h1>
         </div>
       </div>
@@ -518,6 +524,7 @@ function ActiveView({ view }) {
 export default function Home() {
   const [activeView, setActiveView] = useState("dashboard");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   function changeView(view) {
     setActiveView(view);
@@ -525,12 +532,14 @@ export default function Home() {
   }
 
   return (
-    <main className="app-shell">
+    <main className={`app-shell ${sidebarCollapsed ? "is-sidebar-collapsed" : ""}`}>
       <Sidebar
         activeView={activeView}
+        isCollapsed={sidebarCollapsed}
         isOpen={menuOpen}
         onChangeView={changeView}
         onClose={() => setMenuOpen(false)}
+        onToggleCollapse={() => setSidebarCollapsed((value) => !value)}
       />
       <div className="workspace">
         <Topbar activeView={activeView} onOpenMenu={() => setMenuOpen(true)} />
