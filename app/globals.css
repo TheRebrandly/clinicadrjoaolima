@@ -47,6 +47,11 @@ button {
   display: grid;
   grid-template-columns: 232px minmax(0, 1fr);
   min-height: 100vh;
+  transition: grid-template-columns 180ms ease;
+}
+
+.app-shell.is-sidebar-collapsed {
+  grid-template-columns: 84px minmax(0, 1fr);
 }
 
 .sidebar {
@@ -61,19 +66,21 @@ button {
 
 .brand-row {
   display: grid;
-  grid-template-columns: 74px 1fr auto;
-  gap: 12px;
+  justify-items: center;
+  gap: 8px;
   align-items: center;
   min-height: 60px;
   padding: 0 14px 18px;
   border-bottom: 0;
+  text-align: center;
 }
 
 .brand-row strong {
   display: block;
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 13px;
   font-weight: 800;
+  letter-spacing: -0.01em;
 }
 
 .brand-row span,
@@ -97,8 +104,8 @@ button {
 }
 
 .brand-logo {
-  width: 74px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   padding: 5px;
   overflow: hidden;
 }
@@ -154,8 +161,44 @@ button {
 }
 
 .nav-button svg {
+  flex: 0 0 auto;
   color: currentColor;
   stroke-width: 2.2;
+}
+
+.collapse-button {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-top: 2px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #ffffff;
+  color: var(--muted);
+}
+
+.desktop-only {
+  display: grid;
+}
+
+.sidebar.is-collapsed {
+  padding-inline: 8px;
+}
+
+.sidebar.is-collapsed .brand-row {
+  padding-inline: 0;
+}
+
+.sidebar.is-collapsed .brand-row strong,
+.sidebar.is-collapsed .nav-button span,
+.sidebar.is-collapsed .integration-box {
+  display: none;
+}
+
+.sidebar.is-collapsed .nav-button {
+  justify-content: center;
+  padding: 0;
 }
 
 .integration-box {
@@ -481,7 +524,7 @@ button {
 }
 
 .detail-grid div,
-note-box {
+.note-box {
   padding: 12px;
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -622,6 +665,10 @@ note-box {
 
   .mobile-only {
     display: grid;
+  }
+
+  .desktop-only {
+    display: none;
   }
 
   .workspace {
